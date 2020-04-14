@@ -28,14 +28,14 @@ cap = cv.copy()
 for c in list(cap.columns):
     cap[c] = cap[c] / pop[c] * 100000
 
-# Finding colors and style
-colors = {'Canada': '#FF5733', 'Germany': '#FFB533', 'United Kingdom': '#FFEC33', 'US': '#BEFF33', 'France': '#33FF3C',
-          'China': '#33FFA8', 'Italy': '#33FFFF', 'Spain': '#3393FF', 'Iran': '#4F33FF', 'Switzerland': '#BE33FF',
-          'Turkey': '#FF33A8'}
+# Choosing colors and style
+colors = {'Canada': '#FF5733', 'China': '#FFB533', 'France': '#FFEC33', 'Germany': '#BEFF33', 'Iran': '#33FF3C',
+          'Italy': '#33FFA8', 'Spain': '#33FFFF', 'Switzerland': '#3393FF', 'Turkey': '#4F33FF', 'US': '#BE33FF',
+          'United Kingdom': '#FF33A8'}
 ppt.style.use('fivethirtyeight')
 
 # Creating the visualization
-p = cv.plot(figsize=(12, 8), color=list(colors.values()), linewidth=5, legend=False)
+p = cv.plot(figsize=(25, 18), color=list(colors.values()), linewidth=5, legend=True)
 p.yaxis.set_major_formatter(tk.StrMethodFormatter('{x:,.0f}'))
 p.grid(color='#d4d4d4')
 p.set_xlabel('Date')
@@ -44,9 +44,9 @@ p.set_ylabel('# of Cases')
 for c in list(colors.keys()):
     p.text(x=cv.index[-1], y=cv[c].max(), color=colors[c], s=c, weight='bold')
 
-p.text(x=cv.index[1], y=int(cv.max().max()) + 45000, s="COVID-19 Cases by Country", fontsize=23, weight='bold',
+p.text(x=cv.index[10], y=int(cv.max().max()) + 45000, s="COVID-19 Cases by Country", fontsize=23, weight='bold',
        alpha=.75)
-p.text(x=cv.index[1], y=int(cv.max().max()) + 15000, s="For Canada, Germany, the United Kingdom, the United States, "
+p.text(x=cv.index[10], y=int(cv.max().max()) + 15000, s="For Canada, Germany, the United Kingdom, the United States, "
                                                        "France, China, Italy, Spain, Iran, Switzerland and "
                                                        "Turkey\nIncludes Current Cases, Recoveries, and Deaths",
        fontsize=16, alpha=.75)
