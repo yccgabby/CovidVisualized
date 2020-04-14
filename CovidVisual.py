@@ -54,4 +54,5 @@ p.text(x=cap.index[1], y=-100000, s='datagy.io                      Source: '
                                     'https://github.com/datasets/covid-19/blob/master/data/countries'
                                     '-aggregated.csv', fontsize=10)
 
+ppt.savefig('graph.png')
 ppt.show(block=True)
